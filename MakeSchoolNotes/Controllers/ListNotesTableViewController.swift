@@ -26,4 +26,13 @@ class ListNotesTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let identifier = segue.identifier {
+            if identifier == "displayNote" {
+                print("Transitioning to the Display Note View Controller")
+            }
+        }
+    }
 }
