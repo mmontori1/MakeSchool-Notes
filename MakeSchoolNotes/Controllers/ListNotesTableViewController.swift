@@ -30,9 +30,14 @@ class ListNotesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listNotesTableViewCell", for: indexPath) as! ListNotesTableViewCell
         let row = indexPath.row
         let note = notes[row]
-        cell.noteTitleLabel.text = note.title
+        cell.noteTitleLabel.text = note.title == "" ? " " : note.title
         cell.noteModificationTimeLabel.text = note.modificationTime?.convertToString()
-        cell.contentPreviewLabel.text = note.content
+        if let text = note.content{
+            cell.contentPreviewLabel.text = text.replacingOccurrences(of: "\n", with: " ")
+        }
+        else{
+            cell.contentPreviewLabel.text = ""
+        }
         
         return cell
     }
@@ -53,7 +58,8 @@ class ListNotesTableViewController: UITableViewController {
                 let displayNoteViewController = segue.destination as! DisplayNoteViewController
                 displayNoteViewController.note = note
                 print("Table view cell tapped")
-            } else if identifier == "addNote" {
+            }
+            else if identifier == "addNote" {
                 print("+ button tapped")
             }
         }
