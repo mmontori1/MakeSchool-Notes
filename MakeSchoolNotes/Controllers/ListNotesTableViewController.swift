@@ -2,8 +2,8 @@
 //  ListNotesTableViewController.swift
 //  MakeSchoolNotes
 //
-//  Created by Chris Orcutt on 1/10/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Created by Mariano Montori on 7/5/17.
+//  Copyright © 2017 MakeSchool. All rights reserved.
 //
 
 import UIKit
@@ -18,6 +18,7 @@ class ListNotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notes = CoreDataHelper.retrieveNotes()
     }
  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,14 +30,15 @@ class ListNotesTableViewController: UITableViewController {
         let row = indexPath.row
         let note = notes[row]
         cell.noteTitleLabel.text = note.title
-        cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+        cell.noteModificationTimeLabel.text = note.modificationTime?.convertToString()
         
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            notes.remove(at: indexPath.row)
+            CoreDataHelper.deleteNote(note: notes[indexPath.row])
+            notes = CoreDataHelper.retrieveNotes()
         }
     }
     
@@ -56,9 +58,6 @@ class ListNotesTableViewController: UITableViewController {
     }
     
     @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
-        
-        // for now, simply defining the method is sufficient.
-        // we'll add code later
-        
+        self.notes = CoreDataHelper.retrieveNotes()
     }
 }

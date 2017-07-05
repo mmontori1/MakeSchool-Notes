@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MakeSchoolNotes
 //
-//  Created by Chris Orcutt on 1/10/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Created by Mariano Montori on 7/5/17.
+//  Copyright © 2017 MakeSchool. All rights reserved.
 //
 
 import UIKit
