@@ -10,29 +10,55 @@ import UIKit
 
 class ListNotesTableViewController: UITableViewController {
     
+    var notes = [Note]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return notes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listNotesTableViewCell", for: indexPath) as! ListNotesTableViewCell
-        
-        cell.noteTitleLabel.text = "note's title"
-        cell.noteModificationTimeLabel.text = "note's modification time"
+        let row = indexPath.row
+        let note = notes[row]
+        cell.noteTitleLabel.text = note.title
+        cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
         
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            notes.remove(at: indexPath.row)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let identifier = segue.identifier {
             if identifier == "displayNote" {
-                print("Transitioning to the Display Note View Controller")
+                let indexPath = tableView.indexPathForSelectedRow!
+                let note = notes[indexPath.row]
+                let displayNoteViewController = segue.destination as! DisplayNoteViewController
+                displayNoteViewController.note = note
+                print("Table view cell tapped")
+            } else if identifier == "addNote" {
+                print("+ button tapped")
             }
         }
+    }
+    
+    @IBAction func unwindToListNotesViewController(_ segue: UIStoryboardSegue) {
+        
+        // for now, simply defining the method is sufficient.
+        // we'll add code later
+        
     }
 }

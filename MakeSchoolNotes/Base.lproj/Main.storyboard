@@ -54,13 +54,19 @@
                             <outlet property="delegate" destination="u2p-Xo-LIX" id="msW-Ug-yhm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="Kqg-zP-IZs"/>
+                    <navigationItem key="navigationItem" title="Notes" id="Kqg-zP-IZs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="32B-FR-dVi">
+                            <connections>
+                                <segue destination="Yd7-h5-z1n" kind="show" identifier="addNote" id="BSO-SG-RtL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1472.8" y="271.21439280359823"/>
         </scene>
-        <!--Display Note View Controller-->
+        <!--Title-->
         <scene sceneID="SP6-3V-sce">
             <objects>
                 <viewController id="Yd7-h5-z1n" customClass="DisplayNoteViewController" customModule="MakeSchoolNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,8 +103,25 @@
                             <constraint firstAttribute="bottom" secondItem="Xeg-z0-nVo" secondAttribute="bottom" constant="20" symbolic="YES" id="f7Z-mK-lSz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="8NI-dR-tpI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6MM-CQ-Thd">
+                            <connections>
+                                <segue destination="nPt-M0-REO" kind="unwind" identifier="cancel" unwindAction="unwindToListNotesViewController:" id="Mr3-4u-aRj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cwq-bV-Zqf">
+                            <connections>
+                                <segue destination="nPt-M0-REO" kind="unwind" identifier="save" unwindAction="unwindToListNotesViewController:" id="v7b-bW-CiP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noteContentTextView" destination="Xeg-z0-nVo" id="tZO-nq-XZa"/>
+                        <outlet property="noteTitleTextField" destination="GsY-FN-EPh" id="Ahq-OQ-Adq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQc-mB-kbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nPt-M0-REO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2349.5999999999999" y="270.31484257871068"/>
         </scene>
@@ -121,4 +144,7 @@
             <point key="canvasLocation" x="533.60000000000002" y="271.21439280359823"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BSO-SG-RtL"/>
+    </inferredMetricsTieBreakers>
 </document>
