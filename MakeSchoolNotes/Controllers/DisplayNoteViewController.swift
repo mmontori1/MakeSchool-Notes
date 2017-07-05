@@ -21,7 +21,7 @@ class DisplayNoteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        noteTitleTextField.text = note?.title ?? ""
+        noteTitleTextField.text = note?.title ?? "New Note"
         noteContentTextView.text = note?.content ?? ""
     }
     
@@ -32,7 +32,7 @@ class DisplayNoteViewController: UIViewController {
             }
             else if identifier == "save" {
                 let note = self.note ?? CoreDataHelper.createNote()
-                note.title = noteTitleTextField.text ?? ""
+                note.title = noteTitleTextField.text ?? "New Note"
                 note.content = noteContentTextView.text ?? ""
                 note.modificationTime = Date() as NSDate
                 CoreDataHelper.saveNote()

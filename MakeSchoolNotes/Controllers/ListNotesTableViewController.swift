@@ -12,6 +12,7 @@ class ListNotesTableViewController: UITableViewController {
     
     var notes = [Note]() {
         didSet {
+            notes.sort(by: { $0.modificationTime?.compare($1.modificationTime! as Date) == .orderedDescending })
             tableView.reloadData()
         }
     }
