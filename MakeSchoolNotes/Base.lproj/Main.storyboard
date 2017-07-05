@@ -20,41 +20,57 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listNotesTableViewCell" rowHeight="60" id="e5G-wG-mNh" customClass="ListNotesTableViewCell" customModule="MakeSchoolNotes" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listNotesTableViewCell" id="oOT-MQ-qAz" userLabel="listNotesTableViewCell" customClass="ListNotesTableViewCell" customModule="MakeSchoolNotes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5G-wG-mNh" id="Du3-q9-QAa" customClass="ListNotesTableViewCell" customModule="MakeSchoolNotes" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oOT-MQ-qAz" id="omc-jx-Rax">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNk-N8-k1x">
-                                            <rect key="frame" x="3" y="8" width="371" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" red="0.39215686274509803" green="0.29019607843137252" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note Modification Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7l-1M-R0m">
-                                            <rect key="frame" x="3" y="29" width="215" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.40399453043937683" green="0.39554041624069214" blue="0.42447316646575928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk1-lX-7AS">
-                                            <rect key="frame" x="206" y="25" width="113" height="26.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.4039945304" green="0.39554041620000002" blue="0.4244731665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="3Ww-hT-px9">
+                                            <rect key="frame" x="16.5" y="8" width="287.5" height="39.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONf-IP-PSz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.34309926629066467" green="0.25917413830757141" blue="0.21222621202468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dpg-2H-2gd">
+                                                    <rect key="frame" x="0.0" y="21.5" width="287.5" height="18"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Modification Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTS-Kf-BaH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="159.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.36514467000961304" green="0.34489220380783081" blue="0.3529810905456543" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84k-jn-a6q">
+                                                            <rect key="frame" x="174.5" y="0.0" width="113" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.36514467000961304" green="0.34489220380783081" blue="0.3529810905456543" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dpg-2H-2gd" firstAttribute="width" secondItem="3Ww-hT-px9" secondAttribute="width" id="B34-IF-w3o"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="topMargin" secondItem="3Ww-hT-px9" secondAttribute="top" id="p29-kY-8Gq"/>
+                                        <constraint firstItem="3Ww-hT-px9" firstAttribute="leading" secondItem="omc-jx-Rax" secondAttribute="leadingMargin" constant="8.5" id="pHi-J7-yWQ"/>
+                                        <constraint firstItem="3Ww-hT-px9" firstAttribute="centerX" secondItem="omc-jx-Rax" secondAttribute="centerX" id="znr-GW-vqH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.83137254901960778" green="0.70196078431372544" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83068174123764038" green="0.70378333330154419" blue="0.54746896028518677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="noteModificationTimeLabel" destination="q7l-1M-R0m" id="S2e-EV-K0s"/>
-                                    <outlet property="noteTitleLabel" destination="kNk-N8-k1x" id="0VK-mc-5AF"/>
-                                    <segue destination="Yd7-h5-z1n" kind="show" identifier="displayNote" id="2iW-MX-Utp"/>
+                                    <outlet property="contentPreviewLabel" destination="84k-jn-a6q" id="GAP-hy-oNg"/>
+                                    <outlet property="noteModificationTimeLabel" destination="LTS-Kf-BaH" id="NIA-AR-hDj"/>
+                                    <outlet property="noteTitleLabel" destination="ONf-IP-PSz" id="T8F-xU-wDi"/>
+                                    <segue destination="Yd7-h5-z1n" kind="show" id="b8O-hy-PfK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,7 +94,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-TP-ue3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1472.8" y="271.21439280359823"/>
+            <point key="canvasLocation" x="1471.875" y="270"/>
         </scene>
         <!--Display Note View Controller-->
         <scene sceneID="SP6-3V-sce">
@@ -117,7 +133,7 @@
                             </connections>
                         </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="GsY-FN-EPh">
-                            <rect key="frame" x="84.5" y="7" width="151" height="30"/>
+                            <rect key="frame" x="78.5" y="7" width="163" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.89803921568627454" green="0.75686274509803919" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" red="0.39215686274509803" green="0.29019607843137252" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,7 +154,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQc-mB-kbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nPt-M0-REO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2349.5999999999999" y="270.31484257871068"/>
+            <point key="canvasLocation" x="2349.375" y="270"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sjs-Jg-ftq">

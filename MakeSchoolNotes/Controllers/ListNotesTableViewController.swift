@@ -32,6 +32,7 @@ class ListNotesTableViewController: UITableViewController {
         let note = notes[row]
         cell.noteTitleLabel.text = note.title
         cell.noteModificationTimeLabel.text = note.modificationTime?.convertToString()
+        cell.contentPreviewLabel.text = note.content
         
         return cell
     }
